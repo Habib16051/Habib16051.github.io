@@ -1,0 +1,8 @@
+How to use?
+===========
+
+
+You can import ``js``::
+
+  >>> import js
+

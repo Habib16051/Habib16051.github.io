@@ -1,0 +1,11 @@
+{% load martortags %}
+<h1>{{ article.title }}</h1>
+<span>{{ article.author }}</span>
+<span>{{ article.created }}</span>
+
+<article>
+    <blockquote>{{ article.excerpt }}</blockquote>
+    <p>{{ article.content|safe_markdown }}</p>
+</article>
+
+{# TODO: comments #}

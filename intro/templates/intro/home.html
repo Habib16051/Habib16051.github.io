@@ -1,0 +1,39 @@
+{% extends 'intro/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="mt-5">
+    <div class="text-center">
+        <img src="{%static 'intro/images/me.png'  %}" alt="ProfilePic"
+             class="img-thumbnail" width="250px" height="150px">
+    </div>
+
+    <div class="text-white mt-5 mx-2 text-justify">
+        <h1 class="font-weight-bold st-font">Hello,</h1>
+
+        <div class="px-4" style="line-height:2rem;">
+            <p style="text-indent:60px;">
+                 I am Habib from Bangladesh! As an IT student, I have been experienced with Artificial
+                Intelligence(AI), Machine Learning(ML), Data Science, and Natural Language Processing(NLP). I am good at
+                Python Programming, Django framework, Javascript, HTML5, CSS3, and Bootstrap. And I have knowledge about
+                some Python Data Science /ML-related libraries like Numpy, Pandas, Tensorflow, Matplotlib, scikit-learn,
+                etc.
+
+                I am used to Linux OS and have been using this since 2017. I am familiar with Pycharm, Anaconda,
+                Beeker-Studio, VS Code, Sublime text, Spyder, Google Colab and Jupyter Notebook etc.
+
+                I would love to work with some innovative and energetic persons, organizations that I can learn
+                something new and can get the freedom to work without any limitation.(“The best way to predict your
+                 future is to create it.” —Abraham Lincoln)
+            </p>
+
+        </div>
+    </div>
+    <div class="text-center mb-5">
+        <a href="{%url 'contact'%}" class="bg-warning btn btn-online-warning my-3 mx-5">Hire Me</a>
+        <a href="{%url 'contact'%}" class=" bg-success btn btn-online-info my-3">Contact</a>
+    </div>
+
+
+</div>
+{% endblock content %}

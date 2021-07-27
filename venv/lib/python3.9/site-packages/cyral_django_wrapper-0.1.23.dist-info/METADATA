@@ -1,0 +1,11 @@
+Metadata-Version: 2.1
+Name: cyral-django-wrapper
+Version: 0.1.23
+Summary: Enriches your Django database queries with user identity information
+Author: Cyral
+Author-email: support@cyral.com
+Requires-Python: >=3.6.2,<4.0.0
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9

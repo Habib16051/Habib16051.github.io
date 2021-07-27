@@ -1,0 +1,15 @@
+Metadata-Version: 2.1
+Name: html-wrapper
+Version: 0.3.3
+Summary: HTML parser with an lxml backend. Implements a subset of BeautifulSoup API and is an order of magnitude faster
+Home-page: https://github.com/thismachinechills/html_wrapper
+Author: thismachinechills (Alex)
+Author-email: UNKNOWN
+License: AGPL 3.0
+Keywords: html,parser,wrapper,beautifulsoup,bs4,lxml,xml,html,fast,xpath
+Platform: UNKNOWN
+Requires-Dist: lxml
+
+UNKNOWN
+
+

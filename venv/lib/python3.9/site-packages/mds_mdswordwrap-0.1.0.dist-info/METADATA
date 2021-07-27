@@ -1,0 +1,39 @@
+Metadata-Version: 2.0
+Name: mds-mdswordwrap
+Version: 0.1.0
+Summary: Performs a word wrap on a long line of words. 
+Home-page: https://www.m-ds.de/
+Author: martin-data services
+Author-email: service@m-ds.de
+License: GPL-3
+Description-Content-Type: UNKNOWN
+Keywords: word wrap text block
+Platform: UNKNOWN
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 2.6
+Classifier: Programming Language :: Python :: 2.7
+Classifier: Programming Language :: Python :: 3.4
+Classifier: Programming Language :: Python :: 3.5
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+
+mdswordwrap
+===========
+Performs a word wrap on a long line of words. 
+Creates a text block.
+
+Install
+=======
+pip install mds-mdswordwrap
+
+Changes
+=======
+
+*0.1.0 - 13.12.2018*
+
+- public version
+
+

@@ -1,0 +1,3 @@
+[console_scripts]
+emmett=emmett.cli:main
+

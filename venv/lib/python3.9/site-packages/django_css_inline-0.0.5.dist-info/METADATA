@@ -1,0 +1,96 @@
+Metadata-Version: 2.1
+Name: django-css-inline
+Version: 0.0.5
+Summary: Django CSS Inline
+Home-page: https://github.com/Aleksi44/django-css-inline
+Author: Alexis Le Baron
+Author-email: hello@snoweb.fr
+License: GPL-3.0
+Keywords: django css inline
+Platform: linux
+Classifier: Environment :: Web Environment
+Classifier: Intended Audience :: Developers
+Classifier: Programming Language :: Python
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Software Development
+
+*****************
+Django CSS inline
+*****************
+
+.. image:: https://img.shields.io/pypi/v/django-css-inline
+    :target: https://pypi.org/project/django-css-inline/
+
+.. image:: https://img.shields.io/pypi/pyversions/django-css-inline
+    :target: https://pypi.org/project/django-css-inline/
+
+
+Simple helper for loading CSS files as inline in HTML with Django.
+
+Example :
+
+::
+
+    {% load css_inline %}
+
+    ...
+
+    <head>
+        ...
+
+        {% css_inline %}
+            <link rel="stylesheet" href="/static/django_css_inline/test-1.css">
+            <link rel="stylesheet" href="/static/django_css_inline/test-2.css">
+            <link rel="stylesheet" href="https://static.snoweb.fr/django-css-inline/test-3.css">
+        {% end_css_inline %}
+    </head>
+
+Every <link> includes between {% css_inline %} and {% end_css_inline %} give this results :
+
+::
+
+    <head>
+        ...
+
+        <style type="text/css">
+
+            /* test-1.css styles */
+            /* test-2.css styles */
+            /* test-3.css styles */
+
+        </style>
+    </head>
+
+
+Setup
+#####
+
+Install with pip :
+
+``pip install django-css-inline``
+
+
+Add django_css_inline to django apps installed :
+::
+
+    INSTALLED_APPS = [
+        ...
+        'django_css_inline',
+    ]
+
+In settings.py, chose to enable or disable django_css_inline. For example :
+::
+
+    # Default True
+    DJANGO_CSS_INLINE_ENABLE = not DEBUG
+
+If you use static files with Django, don't forget to collect them with :
+::
+
+    python manage.py collectstatic
+
+

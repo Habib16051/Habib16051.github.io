@@ -1,0 +1,125 @@
+Metadata-Version: 2.1
+Name: emmett
+Version: 2.2.3
+Summary: The web framework for inventors
+Home-page: https://emmett.sh
+License: BSD-3-Clause
+Keywords: web,asyncio
+Author: Giovanni Barillari
+Author-email: gi0baro@d4net.org
+Requires-Python: >=3.7,<4.0
+Classifier: Development Status :: 5 - Production/Stable
+Classifier: Environment :: Web Environment
+Classifier: Framework :: AsyncIO
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Topic :: Internet :: WWW/HTTP :: Dynamic Content
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Provides-Extra: orjson
+Requires-Dist: click (>=6.0)
+Requires-Dist: h11 (>=0.10.0,<0.11.0)
+Requires-Dist: h2 (>=3.2.0,<4.1.0)
+Requires-Dist: httptools (>=0.1.1,<0.2.0); sys_platform != "win32"
+Requires-Dist: orjson (>=3.5.1,<3.6.0); extra == "orjson"
+Requires-Dist: pendulum (>=2.1.2,<2.2.0)
+Requires-Dist: pyDAL (==17.3)
+Requires-Dist: pyaes (>=1.6.1,<1.7.0)
+Requires-Dist: python-rapidjson (>=1.0,<2.0)
+Requires-Dist: pyyaml (>=5.4,<6.0)
+Requires-Dist: renoir (>=1.3,<2.0)
+Requires-Dist: severus (>=1.1,<2.0)
+Requires-Dist: uvicorn (==0.13.4)
+Requires-Dist: uvloop (>=0.15.2,<0.16.0); sys_platform != "win32"
+Requires-Dist: websockets (>=9.1,<10.0)
+Project-URL: Documentation, https://emmett.sh/docs
+Project-URL: Issue Tracker, https://github.com/emmett-framework/emmett/issues
+Project-URL: Repository, https://github.com/emmett-framework/emmett
+Description-Content-Type: text/markdown
+
+![Emmett](https://deneb.spaces.amira.io/emmett/artwork/logo-bwb-xb-xl.png)
+
+Emmett is a full-stack Python web framework designed with simplicity in mind.
+
+The aim of Emmett is to be clearly understandable, easy to be learned and to be 
+used, so you can focus completely on your product's features:
+
+```python
+from emmett import App, request, response
+from emmett.orm import Database, Model, Field
+from emmett.tools import service, requires
+
+class Task(Model):
+    name = Field.string()
+    is_completed = Field.bool(default=False)
+
+app = App(__name__)
+app.config.db.uri = "postgres://user:password@localhost/foo"
+db = Database(app)
+db.define_models(Task)
+app.pipeline = [db.pipe]
+
+def is_authenticated():
+    return request.headers["Api-Key"] == "foobar"
+    
+def not_authorized():
+    response.status = 401
+    return {'error': 'not authorized'}
+
+@app.route(methods='get')
+@service.json
+@requires(is_authenticated, otherwise=not_authorized)
+async def todo():
+    page = request.query_params.page or 1
+    tasks = Task.where(
+        lambda t: t.is_completed == False
+    ).select(paginate=(page, 20))
+    return {'tasks': tasks}
+```
+
+[![pip version](https://img.shields.io/pypi/v/emmett.svg?style=flat)](https://pypi.python.org/pypi/emmett)
+![Tests Status](https://github.com/emmett-framework/emmett/workflows/Tests/badge.svg)
+
+## Documentation
+
+The documentation is available at [https://emmett.sh/docs](https://emmett.sh/docs).
+The sources are available under the [docs folder](https://github.com/emmett-framework/emmett/tree/master/docs).
+
+## Examples
+
+The *bloggy* example described in the [Tutorial](https://emmett.sh/docs/latest/tutorial) is available under the [examples folder](https://github.com/emmett-framework/emmett/tree/master/examples). 
+
+## Status of the project
+
+Emmett is production ready and is compatible with Python 3.7 and above versions.
+
+Emmett follows a *semantic versioning* for its releases, with a `{major}.{minor}.{patch}` scheme for versions numbers, where:
+
+- *major* versions might introduce breaking changes
+- *minor* versions usually introduce new features and might introduce deprecations
+- *patch* versions only introduce bug fixes
+
+Deprecations are kept in place for at least 3 minor versions, and the drop is always communicated in the [upgrade guide](https://emmett.sh/docs/latest/upgrading).
+
+## How can I help?
+
+We would be very glad if you contributed to the project in one or all of these ways:
+
+* Talking about Emmett with friends and on the web
+* Adding issues and features requests here on GitHub
+* Participating in discussions about new features and issues here on GitHub
+* Improving the documentation
+* Forking the project and writing beautiful code
+
+## License
+
+Emmmett is released under the BSD License.
+
+However, due to original license limitations, some components are included 
+in Emmett under their original licenses. Please check the LICENSE file for 
+more details.
+

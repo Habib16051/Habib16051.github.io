@@ -1,0 +1,13 @@
+setup.cfg
+setup.py
+Wrapper.egg-info/PKG-INFO
+Wrapper.egg-info/SOURCES.txt
+Wrapper.egg-info/dependency_links.txt
+Wrapper.egg-info/top_level.txt
+wrapper/__init__.py
+wrapper/core.py
+wrapper/ean.py
+wrapper/locu.py
+wrapper/spoonacular.py
+wrapper/walmart.py
+wrapper/zomato.py

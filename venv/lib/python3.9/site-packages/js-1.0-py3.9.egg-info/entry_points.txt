@@ -1,0 +1,3 @@
+[fanstatic.libraries]
+root_directory_for_fanstatic_packages = js:library
+
